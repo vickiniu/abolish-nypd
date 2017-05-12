@@ -1,0 +1,40 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Excel Spreadsheet</title>
+    <meta name="description" content="Rendering Excel data in a web page">
+    <link id="favicon" rel="icon" href="https://glitch.com/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Excel File Mad Libs
+      </h1>
+    </header>
+
+    <main>
+      <h3>Basic data display, unfiltered content of .xlsx file:</h3>
+      <div id="data-container">Fetching data...</div>
+      
+      <h3>Simple templated mad libs:</h3>
+      <div id="madlibs">Getting ready to lib like mad...</div>
+    </main>
+
+    <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>

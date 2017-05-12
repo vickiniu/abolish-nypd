@@ -1,0 +1,48 @@
+/* styles */
+/* called by your view template */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 25px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 48px;
+  color: Indigo;
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid lightgrey;
+}
+
+footer > a {
+  color: #BBBBBB;
+}
+
+#data-container {
+  min-height: 160px;
+  width: 350px;
+  
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px;
+  padding: 0.5em;
+  margin-left: 1em;
+}
+
+#data-container table tr:first-child td {
+  font-weight: bold;
+  min-width: 100px;
+}
+
+#madlibs {
+  min-height: 160px;
+  margin-left: 1em;
+}

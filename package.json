@@ -1,0 +1,24 @@
+{
+	"name": "excel-reader",
+	"version": "0.0.1",
+	"description": "Display data from Excel file",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+    "express": "^4.12.4",
+    "excel": "0.1.6",
+    "tmp": "*",
+    "request": "*"
+	},
+	"engines": {
+		"node": "6.9.x"
+	},
+	"keywords": [
+		"node",
+		"express",
+		"excel"
+	],
+	"license": "MIT"
+}
