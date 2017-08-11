@@ -1,5 +1,10 @@
-# Display Data from Excel
+# Display Data from Airtable
 
-This project provides an example for powering a static web site using an Excel (.xlsx) file on Dropbox.
+This project provides an example for fetching data from Airtable
+using [airtable.js](https://github.com/Airtable/airtable.js)
 
-![](https://cdn.glitch.com/a24de56a-9f77-4503-be6f-730bcd4094f3%2FexcelDataGIF.gif)
+It uses the ["Product Catalog & Orders" template](https://airtable.com/templates/featured/expZvMLT9L6c4yeBX/product-catalog-and-orders).
+
+Put your Airtable API key and base ID in .env to get started!
+
+[airtable.com/api](https://airtable.com/api)
