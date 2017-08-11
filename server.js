@@ -35,6 +35,7 @@ app.get("/data", function (_, response) {
       response.send({records: records.map(record => {
         return {
           name: record.get('Name'),
+          picture: record.get('Picture'),
         };
       })});
     }

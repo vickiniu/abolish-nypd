@@ -26,23 +26,23 @@ footer > a {
   color: #BBBBBB;
 }
 
-#data-container {
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#gallery-card {
   min-height: 160px;
-  width: 350px;
+  width: 200px;
   
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px 2px;
   padding: 0.5em;
   margin-left: 1em;
+  margin-bottom: 1em;
 }
 
-#data-container table tr:first-child td {
-  font-weight: bold;
-  min-width: 100px;
-}
-
-#madlibs {
-  min-height: 160px;
-  margin-left: 1em;
+#gallery-card img {
+  width: 100%;
 }
