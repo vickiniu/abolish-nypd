@@ -3,6 +3,7 @@
 
 $(function() {
     $.getJSON('/data', function (data) {
+      console.log('fetched!', data);
       
       // Basic table rendering
       // http://stackoverflow.com/questions/17066636/parsing-json-objects-for-html-table
