@@ -23,23 +23,38 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+// Cache the records in case we get a lot of traffic.
+// Otherwise, we'll hit Airtable's rate limit.
+var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
+var cachedResponse = null;
+var cachedResponseDate = null;
+
 app.get("/data", function (_, response) {
-  // Select the first 10 records in "Main View".
-  base(tableName).select({
-    maxRecords: 10,
-    view: 'Main View',
-  }).firstPage(function(error, records) {
-    if (error) {
-      response.send({error: error});
-    } else {
-      response.send({records: records.map(record => {
-        return {
-          name: record.get('Name'),
-          picture: record.get('Picture'),
+  if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
+    response.send(cachedResponse);
+  } else {
+    // Select the first 10 records in "Main View".
+    base(tableName).select({
+      maxRecords: 10,
+      view: 'Main View',
+    }).firstPage(function(error, records) {
+      if (error) {
+        response.send({error: error});
+      } else {
+        cachedResponse = {
+          records: records.map(record => {
+            return {
+              name: record.get('Name'),
+              picture: record.get('Picture'),
+            };
+          }),
         };
-      })});
-    }
-  });
+        cachedResponseDate = new Date();
+        
+        response.send(cachedResponse);
+      }
+    });
+  }
 });
 
 // listen for requests :)
