@@ -40,9 +40,9 @@ main {
   min-height: 160px;
   width: 200px;
   
-  border: 1px solid black;
+  border: 1px solid #777;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px;
+  box-shadow: 2px 2px 0 2px rgba(0,0,0,0.2);
   padding: 0.5em;
   margin-left: 1em;
   margin-bottom: 1em;
