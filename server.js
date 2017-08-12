@@ -17,7 +17,7 @@ var app = express();
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (request, response) {
+app.get("/", function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
@@ -27,7 +27,7 @@ var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
 var cachedResponse = null;
 var cachedResponseDate = null;
 
-app.get("/data", function (_, response) {
+app.get("/data", function(_, response) {
   if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
     response.send(cachedResponse);
   } else {
@@ -56,6 +56,6 @@ app.get("/data", function (_, response) {
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });

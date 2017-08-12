@@ -36,7 +36,7 @@ main {
   flex-wrap: wrap;
 }
 
-#gallery-card {
+.gallery-card {
   min-height: 160px;
   width: 200px;
   
@@ -48,7 +48,7 @@ main {
   margin-bottom: 1em;
 }
 
-#gallery-card img {
+.gallery-card img {
   border-radius: 5px;
   margin-bottom: 0.5em;
   width: 100%;
