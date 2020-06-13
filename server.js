@@ -21,6 +21,10 @@ app.get("/", function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.get("/cutit", function(request, response) {
+  response.sendFile(__dirname + '/views/cutit.html');
+})
+
 app.get("/gallery", function(request, response) {
   response.sendFile(__dirname + '/views/gallery.html');
 });

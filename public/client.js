@@ -2,6 +2,22 @@
 // run by the browser each time your view template is loaded
 
 $(function() {
+  $.getCutitJSON('/cut-it-data', function(data) {
+    var $cutitContainer = $('#cutit-container');
+    
+    if (data.error) {
+      $cutitContainer.html('Error! ' + data.error.message);
+      return;
+    }
+    
+    // Clear the loading message
+    $cutitCOntainer.html('');
+    
+    // 
+  })
+})
+
+$(function() {
   $.getJSON('/data', function(data) {
     var $dataContainer = $('#data-container');
       
