@@ -13,7 +13,7 @@ body {
 h1 {
   font-weight: bold;
   font-size: 48px;
-  color: Indigo;
+  color: #00b894;
   margin-bottom: 0;
 }
 
@@ -82,7 +82,7 @@ main {
 }
 
 .callout.highlight {
-  background-color: #ffb302;
+  background-color: #dfe6e9;
 }
 
 .callout p {
@@ -96,13 +96,13 @@ main {
 .card-cta-container {
   padding: 10px 50px 10px 50px;
   display: flex;
+  flex-flow: row wrap;
 }
 
 .card-cta {
   margin: 10px;
   padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #ffb302;
+  width: 250px;
+  background-color: #3BC3A8;
   border-radius: 15px;
 }
