@@ -7,8 +7,6 @@ var Airtable = require('airtable');
 var base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
 }).base(process.env.AIRTABLE_BASE_ID);
-var tableName = 'Furniture';
-var viewName = 'Furniture gallery';
 
 var express = require('express');
 var app = express();
@@ -23,11 +21,15 @@ app.get("/", function(request, response) {
 
 app.get("/cutit", function(request, response) {
   response.sendFile(__dirname + '/views/cutit.html');
-})
+});
 
 app.get("/reinvest", function(request, response) {
   response.sendFile(__dirname + '/views/reinvest.html');
-})
+});
+
+app.get("/swap", function(request, response) {
+  response.sendFile(__dirname + '/views/swap.html');
+});
 
 app.get("/gallery", function(request, response) {
   response.sendFile(__dirname + '/views/gallery.html');
@@ -39,7 +41,34 @@ var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
 var cachedResponse = null;
 var cachedResponseDate = null;
 
+app.get("/cutit-data", function(_, response) {
+  var tableName = 'Cut It (NYPD Budget)';
+  var viewName = 'Grid view';
+  if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
+    response.send(cachedResponse);
+  } else {
+    // Select the first 10 records from the view.
+    // TODO(vicki): does this paginate? 
+    base(tableName).select({
+      maxRecords: 10,
+      view: viewName,
+    }).firstPage(function(error, records) {
+      if (error) {
+        response.send({error: error});
+      } else {
+        cachedResponse = {
+          records: records,
+        };
+        cachedResponseDate = new Date();
+        response.send(cachedResponse);
+      }
+    });
+  }
+});
+
 app.get("/data", function(_, response) {
+  var tableName = 'Furniture';
+  var viewName = 'Furniture gallery';
   if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
     response.send(cachedResponse);
   } else {

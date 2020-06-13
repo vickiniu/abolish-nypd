@@ -1,6 +1,11 @@
 // client-side js
 // run by the browser each time your view template is loaded
 
+// TODO(vicki): only fetch the data that we need per page
+$(function() {
+  $.getJSON('/cutit=data', )
+})
+
 $(function() {
   $.getJSON('/data', function(data) {
     var $dataContainer = $('#data-container');
