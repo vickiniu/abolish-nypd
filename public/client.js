@@ -11,9 +11,10 @@ $(function() {
     }
     
     // Clear the loading message
-    $cutitCOntainer.html('');
+    $cutitContainer.html('');
     
-    // 
+    // Fetch data from Airtable
+    
   })
 })
 
