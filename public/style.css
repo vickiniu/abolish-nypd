@@ -79,6 +79,7 @@ main {
 
 .callout {
   padding: 10px 50px 10px 50px;
+  margin-bottom: 10px;
 }
 
 .callout.highlight {
@@ -106,4 +107,9 @@ main {
   width: 250px;
   background-color: #3BC3A8;
   border-radius: 15px;
+}
+
+.card-cta-container a{
+  text-decoration: none;
+  color: black;
 }

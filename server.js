@@ -25,6 +25,10 @@ app.get("/cutit", function(request, response) {
   response.sendFile(__dirname + '/views/cutit.html');
 })
 
+app.get("/reinvest", function(request, response) {
+  response.sendFile(__dirname + '/views/reinvest.html');
+})
+
 app.get("/gallery", function(request, response) {
   response.sendFile(__dirname + '/views/gallery.html');
 });
