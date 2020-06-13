@@ -12,6 +12,8 @@ $(function() {
       
     // Clear the loading message.
     $dataContainer.html('');
+    
+    console.log('Data: ', data);
       
     data.records.forEach(function(record) {
       var $galleryCard = $('<div class="gallery-card" />');

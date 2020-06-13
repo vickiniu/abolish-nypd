@@ -8,7 +8,7 @@ var base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
 }).base(process.env.AIRTABLE_BASE_ID);
 var tableName = 'Furniture';
-var viewName = 'Main View';
+var viewName = 'Furniture gallery';
 
 var express = require('express');
 var app = express();
