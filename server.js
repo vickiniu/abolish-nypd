@@ -21,6 +21,10 @@ app.get("/", function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.get("/gallery", function(request, response) {
+  response.sendFile(__dirname + '/views/gallery.html');
+});
+
 // Cache the records in case we get a lot of traffic.
 // Otherwise, we'll hit Airtable's rate limit.
 var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
@@ -43,7 +47,7 @@ app.get("/data", function(_, response) {
           records: records.map(record => {
             return {
               name: record.get('Name'),
-              picture: record.get('Picture'),
+              picture: record.get('Images'),
             };
           }),
         };
