@@ -1,12 +1,12 @@
 // server.js
 // where your node app starts
 
-// We're going to use the "Product Catalog and Orders" base template:
-// https://airtable.com/templates/featured/expZvMLT9L6c4yeBX/product-catalog-and-orders
 var Airtable = require("airtable");
 var base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY
 }).base(process.env.AIRTABLE_BASE_ID);
+
+const Autolinker = require( 'autolinker' );
 
 var express = require("express");
 var app = express();
@@ -65,7 +65,7 @@ app.get("/cutit-data", function(_, response) {
                 description: record.get("What is it?"),
                 amount: record.get("How much is it?"),
                 rationale: record.get("Why should we cut it?"),
-                data: record.get("Any data or sources to share?")
+                data: Autolinker.link(record.get("Any data or sources to share?")),
               };
             }),
           };
