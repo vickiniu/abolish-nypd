@@ -37,15 +37,15 @@ app.get("/gallery", function(request, response) {
 
 // Cache the records in case we get a lot of traffic.
 // Otherwise, we'll hit Airtable's rate limit.
-var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
-var cachedResponse = null;
-var cachedResponseDate = null;
+var cacheTimeoutMs = 0 // Cache for 5 seconds.
+var cachedCutitResponse = null;
+var cachedCutitResponseDate = null;
 
 app.get("/cutit-data", function(_, response) {
   var tableName = "Cut It (NYPD Budget)";
   var viewName = "Grid view";
-  if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
-    response.send(cachedResponse);
+  if (cachedCutitResponse && new Date() - cachedCutitResponseDate < cacheTimeoutMs) {
+    response.send(cachedCutitResponse);
   } else {
     // Select the first 10 records from the view.
     // TODO(vicki): does this paginate?
@@ -58,7 +58,7 @@ app.get("/cutit-data", function(_, response) {
         if (error) {
           response.send({ error: error });
         } else {
-          cachedResponse = {
+          cachedCutitResponse = {
             records: records.map(record => {
               return {
                 name: record.get("What to cut?"),
@@ -69,8 +69,8 @@ app.get("/cutit-data", function(_, response) {
               };
             }),
           };
-          cachedResponseDate = new Date();
-          response.send(cachedResponse);
+          cachedCutitResponseDate = new Date();
+          response.send(cachedCutitResponse);
         }
       });
   }
