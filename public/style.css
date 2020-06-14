@@ -99,6 +99,7 @@ main {
   padding: 10px 50px 10px 50px;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .card-cta {
@@ -106,6 +107,7 @@ main {
   padding: 20px;
   text-align: center;
   width: 250px;
+  height: 200px;
   background-color: #3BC3A8;
   border-radius: 15px;
 }
@@ -136,7 +138,7 @@ main {
   color: #00b894;
 }
 
-.record-card a, a:visited {
+.record-card a, .record-card a:visited {
   color: #00856A;
 }
 
