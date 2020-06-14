@@ -22,11 +22,29 @@ $(function() {
     
     data.records.forEach(function(record) {
       var $card = $('<div class="record-card" />');
-      var $label = $('<strong />').text(record.name);
+      var $label = $('<h3 />').text(record.name);
       $card.append($label);
+      
+      // TODO(vicki): only include if the information is included
       var $amount = $('<p class="record-amount" />').text(usdFormatter.format(record.amount));
       $card.append($amount);
-      var $descTitle = $('<p class="record-title" />').text("")
+      
+      var $descTitle = $('<p class="record-title" />').text("What is it?");
+      var $desc = $('<p class="record-desc" />').text(record.description);
+      $card.append($descTitle);
+      $card.append($desc);
+      
+      var $rationaleTitle = $('<p class="record-title" />').text("Why should we cut it?");
+      var $rationale = $('<p class="record-desc" />').text(record.rationale);
+      $card.append($rationaleTitle);
+      $card.append($rationale);
+      
+      // TODO(vicki): parse out and format links
+      var $dataTitle = $('<p class="record-title" />').text("Data or sources");
+      var $data = $('<p class="record-desc" />').text(record.data);
+      $card.append($dataTitle);
+      $card.append($data);
+      
       $container.append($card);
     });
     console.log('Data: ', data);

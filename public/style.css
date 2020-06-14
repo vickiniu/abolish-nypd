@@ -113,3 +113,26 @@ main {
   text-decoration: none;
   color: black;
 }
+
+.record-card {
+  min-height: 160px;
+  
+  border: 1px solid #777;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0 2px rgba(0,0,0,0.2);
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.record-card .record-title {
+  font-weight: bold;
+}
+
+.record-desc {
+  margin: 0px;
+}
+
+.record-card p {
+  margin-bottom: 0px;
+}
