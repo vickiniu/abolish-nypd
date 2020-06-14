@@ -16,8 +16,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/style.css" />
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
-  <body>
+  <body onload="cutitOnLoad()">
     <div class="homepage">
       <header>
         <a href="/" style="text-decoration: none">
@@ -41,20 +46,21 @@
             other parts of the NYPD we should cut.
           </p>
         </div>
-        <div>
-          <!-- TODO(vicki): replace this with a custom display -->
-          <!--           <iframe
-            class="airtable-embed"
-            src="https://airtable.com/embed/shrQSGjN2CrjE3MOr?backgroundColor=purple"
-            frameborder="0"
-            onmousewheel=""
-            width="100%"
-            height="533"
-            style="background: transparent; border: 1px solid #ccc;"
-          ></iframe> -->
+        <div class="callout">
+          <h2>
+            The People's Cuts
+          </h2>
+          <p>
+            These are the cuts to the NYPD budget suggested by our community.
+          </p>
         </div>
         <div id="cutit-container">
           Loading...
+        </div>
+        <div class="callout">
+          <h2>
+            Add your suggestions
+          </h2>
         </div>
         <div id="cutit-form">
           <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script
