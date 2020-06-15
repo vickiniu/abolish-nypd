@@ -245,7 +245,7 @@ main {
   margin-bottom: 50px;
   border: 1px solid #dfe6e9;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .budget-container {
