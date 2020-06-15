@@ -264,6 +264,7 @@ function showCutitModal() {
   modal.style.display = "block";
   var iframe = document.getElementById("cutit-form-iframe");
   iframe.style.height = "1085px";
+  iframe.style.z_index = "2";
 }
 
 function closeCutitModal() {
@@ -275,8 +276,8 @@ function showReinvestModal() {
   var modal = document.getElementById("reinvest-form-modal");
   modal.style.display = "block";
   var iframe = document.getElementById("reinvest-form-iframe");
-  // TODO(vicki): fix this height
   iframe.style.height = "1085px";
+  iframe.style.z_index = "2";
 }
 
 function closeReinvestModal() {
