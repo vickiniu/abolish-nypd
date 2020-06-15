@@ -1,10 +1,10 @@
-# Display Data from Airtable
+# Abolish the NYPD
 
-This project provides an example for fetching data from Airtable
-using [airtable.js](https://github.com/Airtable/airtable.js)
+This is the source for the [abolishthenypd.com](https://www.abolishthenypd.com) site, which serves as a landing 
+page for resources and actions on the campaign to #DefundNYPD today, and eventually abolish.
 
-To make your own:
+This project is written mostly in plain HTML/CSS/JS on the client-side, with an Express server. We use Airtable
+with [airtable.js](https://github.com/Airtable/airtable.js) as a data-store for the contributions to the People's Budget,
+which allows for easy access to the underlying data for moderation purposes.
 
-1. Log into for Airtable and copy the ["Product Catalog & Orders" template](https://airtable.com/templates/featured/expZvMLT9L6c4yeBX/product-catalog-and-orders).
-2. Go to [airtable.com/account](https://airtable.com/account) to generate an API key
-3. Put your Airtable API key and base ID in .env to get started! You can find the base ID on [airtable.com/api](https://airtable.com/api)
+Rest TBD
