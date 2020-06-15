@@ -19,29 +19,21 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/contact-reps", function (request, response) {
+app.get("/contact-reps", function (_, response) {
   response.sendFile(__dirname + "/views/contact-reps.html");
 });
 
-app.get("/peoples-budget", function (request, response) {
+app.get("/peoples-budget", function (_, response) {
   response.sendFile(__dirname + "/views/peoples-budget.html");
 });
 
-app.get("/cutit", function (request, response) {
-  response.sendFile(__dirname + "/views/cutit.html");
+app.get("/spread-the-word", function (_, response) {
+  response.sendFile(__dirname + "/views/spread-the-word.html");
 });
 
-app.get("/reinvest", function (request, response) {
-  response.sendFile(__dirname + "/views/reinvest.html");
-});
-
-app.get("/swap", function (request, response) {
-  response.sendFile(__dirname + "/views/swap.html");
-});
-
-app.get("/gallery", function (request, response) {
-  response.sendFile(__dirname + "/views/gallery.html");
-});
+app.get("/resources", function (_, response) {
+  response.sendFile(__dirname + "/views/resources.html");
+})
 
 // Cache the records in case we get a lot of traffic.
 // Otherwise, we'll hit Airtable's rate limit.
