@@ -15,23 +15,31 @@ var app = express();
 app.use(express.static("public"));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function(request, response) {
+app.get("/", function (request, response) {
   response.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/cutit", function(request, response) {
+app.get("/contact-reps", function (request, response) {
+  response.sendFile(__dirname + "/views/contact-reps.html");
+});
+
+app.get("/peoples-budget", function (request, response) {
+  response.sendFile(__dirname + "/views/peoples-budget.html");
+});
+
+app.get("/cutit", function (request, response) {
   response.sendFile(__dirname + "/views/cutit.html");
 });
 
-app.get("/reinvest", function(request, response) {
+app.get("/reinvest", function (request, response) {
   response.sendFile(__dirname + "/views/reinvest.html");
 });
 
-app.get("/swap", function(request, response) {
+app.get("/swap", function (request, response) {
   response.sendFile(__dirname + "/views/swap.html");
 });
 
-app.get("/gallery", function(request, response) {
+app.get("/gallery", function (request, response) {
   response.sendFile(__dirname + "/views/gallery.html");
 });
 
@@ -41,7 +49,7 @@ var cacheTimeoutMs = 0; // Cache for 5 seconds.
 var cachedCutitResponse = null;
 var cachedCutitResponseDate = null;
 
-app.get("/cutit-data", function(_, response) {
+app.get("/cutit-data", function (_, response) {
   var tableName = "Cut It (NYPD Budget)";
   var viewName = "Grid view";
   if (
@@ -54,12 +62,14 @@ app.get("/cutit-data", function(_, response) {
     // TODO(vicki): does this paginate?
     base(tableName)
       .select({
-        maxRecords: 10,
+        maxRecords: 100,
         view: viewName
       })
-      .firstPage(function(error, records) {
+      .firstPage(function (error, records) {
         if (error) {
-          response.send({ error: error });
+          response.send({
+            error: error
+          });
         } else {
           cachedCutitResponse = {
             records: records.map(record => {
@@ -81,9 +91,51 @@ app.get("/cutit-data", function(_, response) {
   }
 });
 
+var cachedReinvestResponse = null;
+var cachedReinvestResponseDate = null;
+app.get("/reinvest-data", function (_, response) {
+  var tableName = "Reinvest It (In Communities)";
+  var viewName = "Grid view";
+  if (
+    cachedReinvestResponse &&
+    new Date() - cachedReinvestResponseDate < cacheTimeoutMs
+  ) {
+    response.send(cachedReinvestResponse);
+  } else {
+    // Select the first 10 records from the view.
+    base(tableName)
+      .select({
+        maxRecords: 100,
+        view: viewName
+      })
+      .firstPage(function (error, records) {
+        if (error) {
+          response.send({
+            error: error
+          });
+        } else {
+          cachedReinvestResponse = {
+            records: records.map(record => {
+              return {
+                name: record.get("What should the City invest in?"),
+                amount: record.get("How much?"),
+                rationale: record.get("How does it help our communities?"),
+                data: Autolinker.link(
+                  record.get("Any data or sources to share?")
+                )
+              };
+            })
+          };
+          cachedReinvestResponseDate = new Date();
+          response.send(cachedReinvestResponse);
+        }
+      });
+  }
+});
+
 var cachedSwapResponse = null;
 var cachedSwapResponseDate = null;
-app.get("/swap-data", function(_, response) {
+app.get("/swap-data", function (_, response) {
   var tableName = "Suggest Some Swaps";
   var viewName = "Grid view";
   if (
@@ -98,9 +150,11 @@ app.get("/swap-data", function(_, response) {
         maxRecords: 10,
         view: viewName
       })
-      .firstPage(function(error, records) {
+      .firstPage(function (error, records) {
         if (error) {
-          response.send({ error: error });
+          response.send({
+            error: error
+          });
         } else {
           cachedSwapResponse = {
             records: records.map(record => {
@@ -119,6 +173,6 @@ app.get("/swap-data", function(_, response) {
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
+var listener = app.listen(process.env.PORT, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
