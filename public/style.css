@@ -392,3 +392,10 @@ a:hover {
 .float-icon {
   margin-top: 22px;
 }
+
+.quote {
+  border-left: 0.5px solid #2d3436;
+  padding-left: 20px;
+  font-size: 20px;
+  line-height: 35px;
+}
