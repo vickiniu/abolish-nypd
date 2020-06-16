@@ -427,3 +427,27 @@ a:hover {
 .anchor {
   position: relative;
 }
+
+.social-footer {
+  margin: auto;
+  width: 300px;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.social-footer a {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: none;
+  color: #00856A;
+  margin: auto;
+}
+
+.tweets-grid {
+  display: flex;
+}
+
+.tweets-col {
+  flex: 1;
+}
