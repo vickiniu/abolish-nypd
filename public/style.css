@@ -474,6 +474,8 @@ a:hover {
 
 .tweets-grid {
   display: flex;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .tweets-col {
@@ -543,4 +545,31 @@ table.demands {
   margin-top: 25px;
   margin-bottom: 25px;
   padding: 25px;
+}
+
+.tweet-box {
+  background: white;
+  padding: 25px;
+  font-size: 16px;
+  margin: 10px;
+
+  overflow: hidden;
+  border: 1px solid #e1e8ed;
+  border-radius: 5px;
+  max-width: 550px;
+}
+
+.tweet-box img {
+  max-width: 500px;
+}
+
+.twitter-share-button {
+  position: relative;
+  height: 20px;
+  box-sizing: border-box;
+  background-color: #1b95e0;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
 }

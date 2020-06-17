@@ -16,10 +16,11 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="buildTweetButtons()">
     <div class="header">
         <a href="/" class="logo"><img src="assets/fist.png"></a>
         <div class="header-right">
@@ -37,36 +38,107 @@
             </h1>
         </header>
         <div class="container">
-            <p>
-                The #DefundNYPD social media toolkit is coming soon — and we'd love your contributions! Until then,
-                check out some great content on defunding and abolition from the community.
-            </p>
-            <div class="tweets-grid">
-                <div class="tweets-col">
-                    <blockquote class="twitter-tweet">
-                        <p lang="und" dir="ltr"><a href="https://t.co/vU3DOb0YOL">pic.twitter.com/vU3DOb0YOL</a></p>
-                        &mdash;
-                        Ruth
-                        Wilson Gilmore Girls (@rwgilmoregirls) <a
-                            href="https://twitter.com/rwgilmoregirls/status/1272944343003926532?ref_src=twsrc%5Etfw">June
-                            16,
-                            2020</a>
-                    </blockquote>
+            <div class="callout">
+                <h2>TWEET @NYCSPEAKERCOJO</h2>
+                <p>
+                    Tell Speaker Corey Johnson to listen to the people and #DefundNYPD!
+                </p>
+                <div class="tweets-grid">
+                    <div class="tweets-col">
+                        <div class="tweet-box">
+                            <p>
+                                .@NYCSpeakerCoJo: Will you commit to #DefundNYPD by cutting the NYPD operating budget in
+                                HALF in
+                                FY21 & reducing the officer headcount by HALF? The City must redirect these funds to
+                                Black
+                                communities, & remove cops from schools, homeless services, mental health response NOW.
+                            </p>
+                            <a class="twitter-share-button" id="tweet-1">Tweet</a>
+                        </div>
+                    </div>
+                    <div class="tweets-col ">
+                        <div class="tweet-box">
+                            <p>
+                                .@NYCSpeakerCoJo: $1B cuts to NYPD is not enough. I, along with many in this city, are
+                                asking
+                                you for far more meaningful cuts that address the concerns of the moment. #DefundNYPD by
+                                half
+                                and cut officer headcount by half in FY21 and redistribute those funds to Black
+                                communities.
+                            </p>
+                            <a class="twitter-share-button" id="tweet-2">Tweet</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="tweets-col">
-                    <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">When we say <a
-                                href="https://twitter.com/hashtag/DefundPolice?src=hash&amp;ref_src=twsrc%5Etfw">#DefundPolice</a>,
-                            we mean reducing the size, budgets, and power of all institutions that surveil, police,
-                            punish,
-                            incarcerate, and kill Black people to zero. And yes, there&#39;s a toolkit for that: <a
-                                href="https://t.co/Q6UL6VGGU7">https://t.co/Q6UL6VGGU7</a> <a
-                                href="https://t.co/giIXvxwkA5">pic.twitter.com/giIXvxwkA5</a></p>&mdash; Interrupting
-                        Criminalization (@interruptcrim) <a
-                            href="https://twitter.com/interruptcrim/status/1272675743017758720?ref_src=twsrc%5Etfw">June
-                            15,
-                            2020</a>
-                    </blockquote>
+            </div>
+            <div class="callout">
+                <h2>GRAPHICS & RESOURCES</h2>
+                <p>
+                    Also check out our <a
+                        href="https://drive.google.com/drive/folders/1z6nwnQ-LvKhbDPJV7LXTUdrihKCRzmUh?usp=sharing">graphics
+                        toolkit</a> for great graphics, such as the ones below, that
+                    you can use for sharing on social media to #DefundNYPD!
+                </p>
+                <div class="tweets-grid">
+                    <div class="tweets-col">
+                        <div class="tweet-box">
+                            <img src="assets/our-demands.png" />
+                        </div>
+                    </div>
+                    <div class="tweets-col">
+                        <div class="tweet-box">
+                            <img src="assets/quote1.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tweets-grid">
+                    <div class="tweets-col">
+                        <div class="tweet-box">
+                            <img src="assets/logo.png" />
+                        </div>
+                    </div>
+                    <div class="tweets-col">
+                        <div class="tweet-box">
+                            <img src="assets/quote2.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="callout">
+                <h2>FROM THE COMMUNITY</h2>
+                <p>
+                    Also, check out some of our favorite content on defunding and abolition from the community for
+                    inspiration! We are actively looking for folks to help with creating more shareable content so if
+                    that's up your alley, send us a DM!
+                </p>
+                <div class="tweets-grid">
+                    <div class="tweets-col">
+                        <blockquote class="twitter-tweet">
+                            <p lang="und" dir="ltr"><a href="https://t.co/vU3DOb0YOL">pic.twitter.com/vU3DOb0YOL</a></p>
+                            &mdash;
+                            Ruth
+                            Wilson Gilmore Girls (@rwgilmoregirls) <a
+                                href="https://twitter.com/rwgilmoregirls/status/1272944343003926532?ref_src=twsrc%5Etfw">June
+                                16,
+                                2020</a>
+                        </blockquote>
+                    </div>
+                    <div class="tweets-col">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">When we say <a
+                                    href="https://twitter.com/hashtag/DefundPolice?src=hash&amp;ref_src=twsrc%5Etfw">#DefundPolice</a>,
+                                we mean reducing the size, budgets, and power of all institutions that surveil, police,
+                                punish,
+                                incarcerate, and kill Black people to zero. And yes, there&#39;s a toolkit for that: <a
+                                    href="https://t.co/Q6UL6VGGU7">https://t.co/Q6UL6VGGU7</a> <a
+                                    href="https://t.co/giIXvxwkA5">pic.twitter.com/giIXvxwkA5</a></p>&mdash;
+                            Interrupting
+                            Criminalization (@interruptcrim) <a
+                                href="https://twitter.com/interruptcrim/status/1272675743017758720?ref_src=twsrc%5Etfw">June
+                                15,
+                                2020</a>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>

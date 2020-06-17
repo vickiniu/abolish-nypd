@@ -293,3 +293,15 @@ function showPhoneScript() {
     drawer.style.display = "block";
   }
 }
+
+function buildTweetButtons() {
+  var tweetButton = document.getElementById("tweet-1");
+  const tweet1 = encodeURIComponent('.@NYCSpeakerCoJo: Will you commit to #DefundNYPD by cutting the NYPD operating budget in HALF in FY21 & reducing the officer headcount by HALF? The City must redirect these funds to Black communities, & remove cops from schools, homeless services, mental health response NOW.');
+  var url = `https://www.twitter.com/intent/tweet?text=${tweet1}`;
+  tweetButton.href = url;
+
+  tweetButton = document.getElementById("tweet-2");
+  const tweet2 = encodeURIComponent('.@NYCSpeakerCoJo: $1B cuts to NYPD is not enough. I, along with many in this city, are asking you for far more meaningful cuts that address the concerns of the moment. #DefundNYPD by half and cut officer headcount by half in FY21 and redistribute those funds to Black communities.');
+  url = `https://www.twitter.com/intent/tweet?text=${tweet2}`;
+  tweetButton.href = url;
+}
