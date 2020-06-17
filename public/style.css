@@ -6,16 +6,23 @@
 }
 
 body {
-  font-family: "Open Sans", helvetica, arial, sans-serif;
-  /*   font-family: helvetica, arial, sans-serif; */
+  font-family: "Playfair Display", "Times New Roman", serif;
+  line-height: 1.15;
+  background-color: #EFEFEF;
   color: #2d3436;
   margin: 0px;
+}
+
+p,
+li {
+  letter-spacing: 1.05px;
+  line-height: 1.5;
 }
 
 h1 {
   font-weight: bold;
   font-size: 48px;
-  color: #00b894;
+  color: #2d3436;
   margin-bottom: 0;
 }
 
@@ -26,7 +33,7 @@ header {
 footer {
   margin-top: 50px;
   padding-top: 25px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid white;
 }
 
 footer>a {
@@ -39,8 +46,7 @@ main {
 }
 
 .header {
-  background-color: #f1f1f1;
-  padding: 20px 10px;
+  background-color: #C6C3B5;
   position: fixed;
   top: 0;
   width: 100%;
@@ -50,36 +56,40 @@ main {
 /* Style the header links */
 .header a {
   float: left;
-  color: black;
+  color: #2d3436;
   text-align: center;
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
-  border-radius: 4px;
   margin-right: 5px;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
-  font-size: 25px;
-  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.logo img {
+  height: 100px;
+  width: 100px;
 }
 
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: #ddd;
-  color: black;
+  color: #2d3436;
 }
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: #00b894;
-  color: white;
+  color: #2d3436;
+  border: 0.25px solid #C09E1C;
 }
 
 /* Float the link section to the right */
 .header-right {
+  padding-top: 25px;
   float: right;
 }
 
@@ -148,7 +158,7 @@ main {
 }
 
 .callout.highlight {
-  background-color: #dfe6e9;
+  background-color: #C6C3B5;
 }
 
 .callout p {
@@ -161,7 +171,7 @@ main {
 
 .callout a,
 .callout a:visited {
-  color: #00856A;
+  color: #7D6406;
 }
 
 .callout h2 {
@@ -181,8 +191,7 @@ main {
   text-align: center;
   width: 250px;
   height: 200px;
-  background-color: #3BC3A8;
-  border-radius: 15px;
+  border: 0.25px solid #C09E1C;
 }
 
 .card-learn-more {
@@ -193,9 +202,7 @@ main {
   align-items: center;
   width: 250px;
   height: 200px;
-  background-color: #7ACCBC;
-  color: white;
-  border-radius: 15px;
+  border: 0.25px solid #C09E1C;
 }
 
 .card-cta-container a {
@@ -228,12 +235,12 @@ main {
 
 .record-card h3 {
   margin-bottom: 5px;
-  color: #00b894;
+  color: #7D6406;
 }
 
 .record-card a,
 .record-card a:visited {
-  color: #00856A;
+  color: #7D6406;
 }
 
 .record-amount {
@@ -253,7 +260,7 @@ main {
 
 .budget-scroll-container {
   max-height: 500px;
-  background-color: #dfe6e9;
+  background-color: #C6C3B5;
   padding: 20px 20px 20px 20px;
   margin-bottom: 50px;
   border: 1px solid #dfe6e9;
@@ -269,7 +276,7 @@ main {
 form {
   margin-bottom: 25px;
   padding: 15px;
-  background-color: #00b894;
+  background-color: #7D6406;
   display: inline-block;
   width: 100%;
   max-width: 340px;
@@ -288,7 +295,7 @@ input {
 
 button {
   font-size: 16px;
-  background-color: #00b894;
+  background-color: #7D6406;
   color: white;
   cursor: pointer;
   border: none;
@@ -297,7 +304,6 @@ button {
   text-decoration: none;
   font-size: 16px;
   line-height: 25px;
-  border-radius: 4px;
   margin-right: 5px;
 }
 
@@ -318,10 +324,12 @@ button {
 }
 
 .preview {
+  font-family: "Open Sans";
+  background-color: white;
   padding: 10px 50px 10px 50px;
   border: 1px solid grey;
   border-radius: 3px;
-  box-shadow: 2px 2px #00b894;
+  box-shadow: 2px 2px #7D6406;
 }
 
 .send-mail-container {
@@ -390,7 +398,7 @@ button {
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: #0C9;
+  background-color: #7D6406;
   color: #FFF;
   border-radius: 50px;
   text-align: center;
@@ -440,7 +448,7 @@ a:hover {
   padding-left: 5px;
   padding-right: 5px;
   text-decoration: none;
-  color: #00856A;
+  color: #7D6406;
   margin: auto;
 }
 
@@ -450,4 +458,12 @@ a:hover {
 
 .tweets-col {
   flex: 1;
+}
+
+.abolish-heading img {
+  width: 200px;
+}
+
+.abolish-heading h1 {
+  margin-top: 0px;
 }
