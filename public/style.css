@@ -3,6 +3,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", "Arial", san-serif;
 }
 
 h1,
@@ -12,18 +13,11 @@ h3 {
   letter-spacing: 2px;
 }
 
-p,
-li,
-ul {
-  font-family: "Montserrat", "Arial", san-serif;
-}
-
 body {
   line-height: 1.5;
   background-color: #EFEFEF;
   color: #2d3436;
   margin: 0px;
-  font-family: "Montserrat", "Arial", san-serif;
 }
 
 /* p,
@@ -208,7 +202,6 @@ main {
   width: 250px;
   height: 200px;
   border: 0.25px solid #C09E1C;
-  font-family: "Montserrat", "Arial", san-serif;
   align-items: center;
 }
 
@@ -221,7 +214,6 @@ main {
   width: 250px;
   height: 200px;
   border: 0.25px solid #C09E1C;
-  font-family: "Montserrat", "Arial", san-serif;
 }
 
 .card-cta-container a {
@@ -255,7 +247,6 @@ main {
 .record-card h3 {
   margin-bottom: 5px;
   color: #7D6406;
-  font-family: "Montserrat", "Arial", san-serif;
 }
 
 .record-card a,
@@ -344,7 +335,6 @@ button {
 }
 
 .preview {
-  font-family: "Montserrat", "Arial", sans-serif;
   background-color: white;
   padding: 10px 50px 10px 50px;
   border: 1px solid grey;
