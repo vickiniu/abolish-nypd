@@ -75,12 +75,6 @@ main {
   width: 100px;
 }
 
-/* Change the background color on mouse-over */
-.header a:hover {
-  background-color: #ddd;
-  color: #2d3436;
-}
-
 /* Style the active/current link*/
 .header a.active {
   color: #2d3436;
@@ -429,7 +423,7 @@ a:hover {
 .anchor a {
   position: absolute;
   left: 0px;
-  top: -100px;
+  top: -120px;
 }
 
 .anchor {
