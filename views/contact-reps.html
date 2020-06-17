@@ -42,28 +42,68 @@
                     members calling for change.
                 </p>
                 <p>
-                    It's more important than ever that we keep the pressure on! Send an email to all the NYC Council
-                    Members
-                    today, calling for them to defund the NYPD.
+                    It's more important than ever that we keep the pressure on!
                 </p>
+            </div>
+            <div class="callout highlight">
+                <h2>
+                    1. CALL YOUR REP
+                </h2>
                 <p>
-                    You can look up your council member's stance on defunding the NYPD <a
-                        href="https://defund-nypd-reps.glitch.me/">here</a>, or check out the <a
+                    Call your council member today! You can look up your council member's phone number and stance on
+                    defunding the NYPD
+                    <a href="https://defund-nypd-reps.glitch.me/">here</a>, or check out the <a
                         href="https://docs.google.com/spreadsheets/d/18pWRSu58DpENABkYUJlZw1ltCPZft7KJc6lFaOZK8-s/edit#gid=1747373858">full
                         tracker</a>.
                 </p>
-            </div>
-            <div class="form">
-                <div class="input-container">
-                    <label class="label" for="name">Name</label>
-                    <input class="input" id="name" />
-                    <label class="label" for="neighborhood">Neighborhood / Borough</label>
-                    <input class="input" id="neighborhood" />
-                    <button class="generate" onclick="generateEmail()">
-                        Generate Email
-                    </button>
+                <button onclick="showPhoneScript()">Show Phone Script</button>
+                <div class="drawer" id="phone-script-drawer">
+                    <div class="phone-script">
+                        <p>
+                            Hello, my name is ________ and I am a constituent of the Council Member. [If
+                            comfortable,
+                            name cross streets of residence.]
+                        </p>
+                        <p>
+                            I am calling because I want to urge the Council Member to support the call to
+                            #DefundNYPD
+                            and only vote for a budget that includes major cuts to the NYPD, specifically cutting
+                            the
+                            NYPD budget and officer headcount by half in FY21. This is very important to me, and
+                            will
+                            affect my decision in future elections.
+                        </p>
+                        <p>
+                            I also want to urge the Council Member to publicly support the call to get cops out of
+                            schools and issues that could be addressed by social services and community workers. All
+                            funds recovered from NYPD should be redirected to Black communities this upcoming fiscal
+                            year.
+                        </p>
+                        <p>
+                            I hope the Council Member will consider this issue, as I believe it's important to the
+                            constituents of this district. Thank you for your time.
+                        </p>
+                    </div>
                 </div>
-                <div id="preview"></div>
+            </div>
+            <div class="callout">
+                <h2>2. EMAIL CITY COUNCIL</h2>
+                <p>
+                    Use this tool to email all NYC City Council members, urging them to find meaningful cuts to the
+                    NYPD's budget and align with the #DefundNYPD demands.
+                </p>
+                <div class="form">
+                    <div class="input-container">
+                        <label class="label" for="name">Name</label>
+                        <input class="input" id="name" />
+                        <label class="label" for="neighborhood">Neighborhood / Borough</label>
+                        <input class="input" id="neighborhood" />
+                        <button class="generate" onclick="generateEmail()">
+                            Generate Email
+                        </button>
+                    </div>
+                    <div id="preview"></div>
+                </div>
             </div>
         </div>
     </div>

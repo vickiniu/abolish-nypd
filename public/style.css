@@ -46,7 +46,7 @@ header {
 footer {
   margin-top: 50px;
   padding-top: 25px;
-  border-top: 1px solid white;
+  border-top: 1px solid #C09E1C;
 }
 
 footer>a {
@@ -109,7 +109,7 @@ main {
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .header a {
     float: none;
     display: block;
@@ -174,6 +174,7 @@ main {
 
 .callout.highlight {
   background-color: #C6C3B5;
+  padding-bottom: 25px;
 }
 
 .callout p {
@@ -319,6 +320,7 @@ button {
   border: none;
   text-align: center;
   padding: 8px 15px 8px 15px;
+  outline: none;
   text-decoration: none;
   font-size: 16px;
   line-height: 25px;
@@ -484,4 +486,61 @@ a:hover {
 
 .abolish-heading h1 {
   margin-top: 0px;
+}
+
+table.demands {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.demands-grid {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .demands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.demand-card {
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+.demand-card h3 {
+  font-size: 24px;
+}
+
+.demand-card img {
+  max-width: 200px;
+}
+
+.img-right img {
+  float: right;
+}
+
+.img-center {
+  text-align: center;
+}
+
+.img-center h3,
+.img-center p {
+  text-align: left;
+}
+
+#phone-script-drawer {
+  display: none;
+}
+
+.phone-script {
+  background-color: white;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 25px;
 }

@@ -239,7 +239,7 @@ ben@benkallos.com`;
   htmlText = emailText.replace(/\n/g, "<br />");
   document.getElementById("preview").innerHTML = `
 <h2>
-Preview
+PREVIEW
 </h2>
 <p class="preview">
 ${htmlText}
@@ -283,4 +283,13 @@ function showReinvestModal() {
 function closeReinvestModal() {
   var modal = document.getElementById("reinvest-form-modal");
   modal.style.display = "none";
+}
+
+function showPhoneScript() {
+  var drawer = document.getElementById("phone-script-drawer");
+  if (drawer.style.display === "block") {
+    drawer.style.display = "none";
+  } else {
+    drawer.style.display = "block";
+  }
 }
