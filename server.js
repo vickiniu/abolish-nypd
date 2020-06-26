@@ -125,45 +125,6 @@ app.get("/reinvest-data", function (_, response) {
   }
 });
 
-var cachedSwapResponse = null;
-var cachedSwapResponseDate = null;
-app.get("/swap-data", function (_, response) {
-  var tableName = "Suggest Some Swaps";
-  var viewName = "Grid view";
-  if (
-    cachedSwapResponse &&
-    new Date() - cachedSwapResponseDate < cacheTimeoutMs
-  ) {
-    response.send(cachedSwapResponse);
-  } else {
-    // TODO(vicki): fetch remaining records, not just first 10!
-    base(tableName)
-      .select({
-        maxRecords: 10,
-        view: viewName
-      })
-      .firstPage(function (error, records) {
-        if (error) {
-          response.send({
-            error: error
-          });
-        } else {
-          cachedSwapResponse = {
-            records: records.map(record => {
-              return {
-                name: record.get("Swap"),
-                examples: Autolinker.link(record.get("Examples")),
-                notes: record.get("Notes")
-              };
-            })
-          };
-          cachedSwapResponseDate = new Date();
-          response.send(cachedSwapResponse);
-        }
-      });
-  }
-});
-
 // listen for requests :)
 let port = process.env.PORT;
 if (port == null || port == "") {

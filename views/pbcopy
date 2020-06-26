@@ -1,0 +1,10 @@
+    <div class="header">
+        <a href="/" class="logo"><img src="assets/fist.png"></a>
+        <div class="header-right">
+            <a href="/">Home</a>
+            <a class="active" href="/contact-reps">Contact Your Rep</a>
+            <a href="/peoples-budget">People's Budget</a>
+            <a href="/spread-the-word">Spread the Word</a>
+            <a href="/resources">Learn More</a>
+        </div>
+    </div>
