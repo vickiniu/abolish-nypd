@@ -200,7 +200,7 @@ ben@benkallos.com`;
   var body = encodeURIComponent(emailText);
   var subject = encodeURIComponent("#DefundNYPD by half, and reduce officers by half this year");
   var url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}&bcc=${emails}`;
-  htmlText = emailText.replace(/\n/g, "<br />");
+  var htmlText = emailText.replace(/\n/g, "<br />");
   document.getElementById("preview").innerHTML = `
 <h2>
 PREVIEW
