@@ -269,3 +269,45 @@ function buildTweetButtons() {
   url = `https://www.twitter.com/intent/tweet?text=${tweet2}`;
   tweetButton.href = url;
 }
+
+const address = new google.maps.places.Autocomplete(
+  document.getElementById("address-input"),
+  {
+    // https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/nybb_metadata.pdf?ver=18c
+    bounds: new google.maps.LatLngBounds(
+      { lat: 40.495992, lng: -74.257159 },
+      { lat: 40.915568, lng: -73.699215 }
+    ),
+    types: ["address"],
+    strictBounds: true,
+    fields: ["address_components", "formatted_address"]
+  }
+);
+
+function lookupRep() {
+  const place = address.getPlace();
+  if (!place) {
+    // TODO(vicki): handle error, show in UI
+  }
+  const body = {};
+  place.address_components.forEach(f => {
+    if (f.types.includes("street_number")) {
+      body.housenumber = f.short_name;
+    } else if (f.types.includes("route")) {
+      body.street = f.short_name;
+    } else if (f.types.includes("postal_code")) {
+      body.zip = f.short_name;
+    }
+  });
+  $.ajax(
+    '/council-member-info',
+    {
+      'data': JSON.stringify(body),
+      'type': 'POST',
+      'processData': false,
+      'contentType': 'application/json',
+    }
+  ).done(function (data) {
+    console.log(data);
+  });
+}

@@ -9,7 +9,9 @@
   "dependencies": {
     "airtable": "^0.8.1",
     "autolinker": "^3.14.1",
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "google-spreadsheet": "^3.0.11",
+    "node-fetch": "^2.6.0"
   },
   "engines": {
     "node": "6.9.x"

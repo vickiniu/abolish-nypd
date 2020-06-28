@@ -27,6 +27,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- TODO(vicki): read API key from environment -->
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-iXbXT8wSEFjZhXIzassPc0gQy00rtsA&libraries=places"></script>
 </head>
 
 <body>
@@ -55,9 +58,22 @@
                     It's more important than ever that we keep the pressure on!
                 </p>
             </div>
+            <div class="callout">
+                <h2>
+                    1. LOOKUP YOUR REP
+                </h2>
+                <p>
+                    Enter your address in below to lookup your City Council member.
+                </p>
+                <div class="input-container">
+                    <label class="label" for="address">Address</label>
+                    <input class="input" id="address-input" />
+                </div>
+                <button onclick="lookupRep()">Lookup My Rep</button>
+            </div>
             <div class="callout highlight">
                 <h2>
-                    1. CALL YOUR REP
+                    2. CALL THEM
                 </h2>
                 <p>
                     Call your council member today! You can look up your council member's phone number and stance on
@@ -97,7 +113,7 @@
                 </div>
             </div>
             <div class="callout">
-                <h2>2. EMAIL CITY COUNCIL</h2>
+                <h2>3. EMAIL THEM</h2>
                 <p>
                     Use this tool to email all NYC City Council members, urging them to find meaningful cuts to the
                     NYPD's budget and align with the #DefundNYPD demands.
