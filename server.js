@@ -141,7 +141,7 @@ app.get("/reinvest-data", function (_, response) {
   }
 });
 
-app.post('/council-member-info', async function (req, res) {
+app.post("/council-member-info", async function (req, res) {
   const url = `${geoclient_url}&houseNumber=${encodeURIComponent(req.body.housenumber)}&street=${encodeURIComponent(req.body.street)}&zip=${encodeURIComponent(req.body.zip)}`;
   console.log(url);
   https.get(url,
