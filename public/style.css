@@ -321,7 +321,7 @@ button {
   margin-top: 5px;
 }
 
-.generate {
+.button {
   margin-top: 5px;
 }
 
@@ -586,4 +586,21 @@ table.demands {
   border-radius: 3px;
   font-weight: 500;
   cursor: pointer;
+}
+
+#council-member {
+  display: none;
+  
+}
+
+.council {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#council-member-photo img {
+  width: 200px;
+  margin-top: 25px;
 }

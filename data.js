@@ -12,7 +12,7 @@ const spreadsheet_id = "18pWRSu58DpENABkYUJlZw1ltCPZft7KJc6lFaOZK8-s";
 
 async function getCouncilInfo(district) {
     data = await cacheSpreadsheetData();
-    return data[district];
+    return data[Number(district).toString()];
 }
 
 let spreadsheetData = null;

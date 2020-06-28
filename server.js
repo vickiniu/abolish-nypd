@@ -151,11 +151,13 @@ app.post('/council-member-info', async function (req, res) {
         data += chunk;
       });
       resp.on('end', async () => {
+        console.log(data);
         const district = JSON.parse(data).address.cityCouncilDistrict;
         if (district) {
           const districtInfo = await getCouncilInfo(district);
           res.json(districtInfo);
         } else {
+          console.log('City Council district not found');
           res.json({
             error: 'no city council district found',
           })
