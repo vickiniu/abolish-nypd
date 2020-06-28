@@ -303,8 +303,9 @@ var councilMemberInfo = null;
 function lookupRep() {
   const place = address.getPlace();
   if (!place) {
-    console.log('ERROR: cannot find place');
-    // TODO(vicki): handle error, show in UI
+    var $error = $('#address-input-error');
+    $error.html($('<p class="error" />').text('Unable to find address'));
+    return;
   }
   const body = {};
   place.address_components.forEach(f => {
@@ -325,6 +326,11 @@ function lookupRep() {
       'contentType': 'application/json',
     }
   ).done(function (data) {
+    if (data.error) {
+      var $error = $('#address-input-error');
+      $error.html($('<p class="error" />').text('Unable to find City Council information for that address'));
+      return;
+    }
     // TODO(vicki:) improve
     councilMemberInfo = data;
     var $container = $('#council-member-info');
