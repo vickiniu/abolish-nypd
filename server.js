@@ -1,18 +1,34 @@
 // server.js
 // where your node app starts
-
+const Autolinker = require("autolinker");
+const bodyParser = require('body-parser');
+const https = require('https');
 var Airtable = require("airtable");
+var express = require("express");
+
+const { getCouncilInfo } = require("./data");
+
+const geoclient_app_id = process.env["GEOCLIENT_APP_ID"];
+const geoclient_app_key = process.env["GEOCLIENT_APP_KEY"];
+const geoclient_url = `https://api.cityofnewyork.us/geoclient/v1/address.json?app_id=${geoclient_app_id}&app_key=${geoclient_app_key}&`;
+
 var base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY
 }).base(process.env.AIRTABLE_BASE_ID);
 
-const Autolinker = require("autolinker");
-
-var express = require("express");
 var app = express();
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+var listener = app.listen(port, function () {
+  console.log("Your app is listening on port " + listener.address().port);
+});
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
+app.use(bodyParser.json());
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
@@ -125,11 +141,31 @@ app.get("/reinvest-data", function (_, response) {
   }
 });
 
-// listen for requests :)
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-var listener = app.listen(port, function () {
-  console.log("Your app is listening on port " + listener.address().port);
+app.post('/council-member-info', async function (req, res) {
+  const url = `${geoclient_url}&houseNumber=${encodeURIComponent(req.body.housenumber)}&street=${encodeURIComponent(req.body.street)}&zip=${encodeURIComponent(req.body.zip)}`;
+  console.log(url);
+  https.get(url,
+    (resp) => {
+      let data = '';
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+      resp.on('end', async () => {
+        console.log(data);
+        const district = JSON.parse(data).address.cityCouncilDistrict;
+        if (district) {
+          const districtInfo = await getCouncilInfo(district);
+          res.json(districtInfo);
+        } else {
+          console.log('City Council district not found');
+          res.json({
+            error: 'no city council district found',
+          })
+        }
+      });
+    }).on("error", (err) => {
+      res.json({
+        error: err.message,
+      });
+    });
 });

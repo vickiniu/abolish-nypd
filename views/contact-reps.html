@@ -27,6 +27,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- TODO(vicki): read API key from environment -->
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-iXbXT8wSEFjZhXIzassPc0gQy00rtsA&libraries=places"></script>
 </head>
 
 <body>
@@ -52,19 +55,35 @@
                     members calling for change.
                 </p>
                 <p>
-                    It's more important than ever that we keep the pressure on!
+                    It's more important than ever that we keep the pressure on! June 30th is coming up, so time is of
+                    the essence.
                 </p>
             </div>
-            <div class="callout highlight">
+            <div class="callout">
                 <h2>
-                    1. CALL YOUR REP
+                    1. LOOKUP YOUR REP
                 </h2>
                 <p>
-                    Call your council member today! You can look up your council member's phone number and stance on
-                    defunding the NYPD
-                    <a href="https://defund-nypd-reps.glitch.me/">here</a>, or check out the <a
-                        href="https://docs.google.com/spreadsheets/d/18pWRSu58DpENABkYUJlZw1ltCPZft7KJc6lFaOZK8-s/edit#gid=1747373858">full
-                        tracker</a>.
+                    Enter your address below to look up your City Council member.
+                </p>
+                <div class="input-container">
+                    <input class="input" id="address-input" />
+                </div>
+                <button class="button" onclick="lookupRep()">Lookup My Rep</button>
+            </div>
+            <div class="callout highlight" id="council-member">
+                <div class="council" id="council-member-photo">
+                </div>
+                <div class="council" id="council-member-info">
+                </div>
+                <div class="council" id="council-member-contact"></div>
+            </div>
+            <div class="callout">
+                <h2>
+                    2. CALL THEM
+                </h2>
+                <p>
+                    Use our phone script to call your council member today!
                 </p>
                 <button onclick="showPhoneScript()">Show Phone Script</button>
                 <div class="drawer" id="phone-script-drawer">
@@ -97,23 +116,21 @@
                 </div>
             </div>
             <div class="callout">
-                <h2>2. EMAIL CITY COUNCIL</h2>
+                <h2>3. EMAIL THEM</h2>
                 <p>
-                    Use this tool to email all NYC City Council members, urging them to find meaningful cuts to the
+                    Send your council member an email, urging them to find meaningful cuts to the
                     NYPD's budget and align with the #DefundNYPD demands.
                 </p>
-                <div class="form">
-                    <div class="input-container">
-                        <label class="label" for="name">Name</label>
-                        <input class="input" id="name" />
-                        <label class="label" for="neighborhood">Neighborhood / Borough</label>
-                        <input class="input" id="neighborhood" />
-                        <button class="generate" onclick="generateEmail()">
-                            Generate Email
-                        </button>
-                    </div>
-                    <div id="preview"></div>
+                <div class="input-container">
+                    <label class="label" for="name">Name</label>
+                    <input class="input" id="name" />
+                    <label class="label" for="neighborhood">Neighborhood / Borough</label>
+                    <input class="input" id="neighborhood" />
+                    <button class="button" onclick="generateEmail()">
+                        Generate Email
+                    </button>
                 </div>
+                <div id="preview"></div>
             </div>
         </div>
     </div>

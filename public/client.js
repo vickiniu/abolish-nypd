@@ -11,6 +11,8 @@ function peoplesBudgetOnLoad() {
   loadReinvest();
 }
 
+// TODO(vicki): use something like React so we don't have to do
+// all this manual DOM manipulation.
 function loadCuts() {
   $.getJSON('/cutit-data', function (data) {
     var $container = $('#cutit-container');
@@ -102,9 +104,11 @@ function loadReinvest() {
 function generateEmail() {
   var name = document.getElementById("name").value;
   var neighborhood = document.getElementById("neighborhood").value;
-  const emailText = `Dear Councilmember,
+  var residence = councilMemberInfo ? `${neighborhood}, in City Council District ${councilMemberInfo.district} — your district` : neighborhood;
+  var greeting = councilMemberInfo ? `Dear Councilmember ${councilMemberInfo.last_name},` : `Dear Councilmember,`
+  const emailText = `${greeting}
 
-My name is ${name} and I am a resident of ${neighborhood}. As you know, NYC Mayor Bill De Blasio proposed major budget cuts for the Fiscal Year 2021, especially to education and youth programs, while refusing to dramatically slash the NYPD budget. 
+My name is ${name} and I am a resident of ${residence}. As you know, NYC Mayor Bill De Blasio proposed major budget cuts for the Fiscal Year 2021, especially to education and youth programs, while refusing to dramatically slash the NYPD budget. 
   
 The Speaker and NYC Council has found $1 billion worth of cuts, but I, along with many other residents of this city, are asking you for far more meaningful cuts that address the concerns of the moment. I urge you to work with your colleagues to do the following to respond to the #DefundNYPD demands:
   
@@ -128,7 +132,7 @@ Thank you,
 ${name}
   `;
 
-  const emails = `
+  var emails = `
 mguerra@council.nyc.gov,
 district2@council.nyc.gov,
 speakerjohnson@council.nyc.gov,
@@ -197,9 +201,14 @@ cornegyr@yahoo.com,
 inezdbarron@aol.com,
 ben@benkallos.com`;
 
+  // If they have selected a council member, use their email
+  if (councilMemberInfo) {
+    emails = councilMemberInfo.emails;
+  }
+
   var body = encodeURIComponent(emailText);
   var subject = encodeURIComponent("#DefundNYPD by half, and reduce officers by half this year");
-  var url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}&bcc=${emails}`;
+  var url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}&to=${emails}`;
   var htmlText = emailText.replace(/\n/g, "<br />");
   document.getElementById("preview").innerHTML = `
 <h2>
@@ -216,7 +225,7 @@ Send with Gmail
 </a>
 </div>
 <div class="send-mail">
-<a href="mailto:?bcc=${emails}&subject=${subject}&body=${body}"><button>Send with Mail App</button></a>
+<a href="mailto:${emails}?subject=${subject}&body=${body}"><button>Send with Mail App</button></a>
 <p style="margin:5px;"><i>(best for mobile)</i></p>
 </div>
 </div>
@@ -268,4 +277,115 @@ function buildTweetButtons() {
   const tweet2 = encodeURIComponent('.@NYCSpeakerCoJo: $1B cuts to NYPD is not enough. I, along with many in this city, are asking you for far more meaningful cuts that address the concerns of the moment. #DefundNYPD by half and cut officer headcount by half in FY21 and redistribute those funds to Black communities.');
   url = `https://www.twitter.com/intent/tweet?text=${tweet2}`;
   tweetButton.href = url;
+}
+
+const address = new google.maps.places.Autocomplete(
+  document.getElementById("address-input"),
+  {
+    // https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/nybb_metadata.pdf?ver=18c
+    bounds: new google.maps.LatLngBounds(
+      { lat: 40.495992, lng: -74.257159 },
+      { lat: 40.915568, lng: -73.699215 }
+    ),
+    types: ["address"],
+    strictBounds: true,
+    fields: ["address_components", "formatted_address"]
+  }
+);
+
+// TODO(vicki): less ugly hack here
+// councilMemberInfo is a global variable so we can 
+// reference the correct emails also when generating.
+// This is not a super-excellent way to handle this.
+var councilMemberInfo = null;
+
+// TODO(vicki): add in more council member info
+function lookupRep() {
+  const place = address.getPlace();
+  if (!place) {
+    console.log('ERROR: cannot find place');
+    // TODO(vicki): handle error, show in UI
+  }
+  const body = {};
+  place.address_components.forEach(f => {
+    if (f.types.includes("street_number")) {
+      body.housenumber = f.short_name;
+    } else if (f.types.includes("route")) {
+      body.street = f.short_name;
+    } else if (f.types.includes("postal_code")) {
+      body.zip = f.short_name;
+    }
+  });
+  $.ajax(
+    '/council-member-info',
+    {
+      'data': JSON.stringify(body),
+      'type': 'POST',
+      'processData': false,
+      'contentType': 'application/json',
+    }
+  ).done(function (data) {
+    // TODO(vicki:) improve
+    councilMemberInfo = data;
+    var $container = $('#council-member-info');
+    var $name = $('<h2 />').text(`COUNCILMEMBER ${data.full_name}`.toUpperCase());
+    // TODO(vicki): make the capitalization hack nicer
+    var $district_party = $('<p />').text(`District ${data.district}, ${data.party[0].toUpperCase() + data.party.slice(1)}`);
+    $container.html($name, $district_party);
+    if (data.positions) {
+      var $cuts_position;
+      if (data.positions.cut_nypd_budget === "YES") {
+        $cuts_position = $('<p />').text('Supports cutting the NYPD budget');
+      } else if (data.positions.cut_nypd_budget === "NO") {
+        $cuts_position = $('<p />').text('Opposes cutting the NYPD budget');
+      } else {
+        $cuts_position = $('<p />').text('Has not committed to cutting the NYPD budget');
+      }
+      $container.append($cuts_position);
+      var $budget_vote_position;
+      if (data.positions.vote_against_status_quote_budget === "YES") {
+        $budget_vote_position = $('<p />').text('Will vote against a status-quo NYPD budget');
+      } else if (data.positions.vote_against_status_quote_budget === "NO") {
+        $budget_vote_position = $('<p />').text('Will not vote against a status-quo NYPD budget');
+      } else {
+        $budget_vote_position = $('<p />').text('Has not committed to vote against a status-quo NYPD budget');
+      }
+      $container.append($budget_vote_position);
+      var $cut_amount_position;
+      if (data.positions.nypd_cut_amount && data.positions.nypd_cut_amount !== "Against cuts") {
+        $cut_amount_position = $('<p />').text(`Is seeking ${data.positions.nypd_cut_amount} in cuts to the NYPD budget`);
+      }
+      $container.append($cut_amount_position);
+    }
+
+    var $img_container = $('#council-member-photo');
+    var $image = $('<img />').attr("src", data.photo_url);
+    $img_container.html($image);
+
+    var $contact_container = $('#council-member-contact');
+    $contact_container.html('');
+    data.phones.forEach((phone) => {
+      // TODO(vicki): format phone number
+      var phoneNumber = phone[1];
+      if (phoneNumber) {
+        $contact_container.append($('<p />').html($('<a />').attr("href", `tel:${phoneNumber}`).text(phoneNumber)));
+      }
+    });
+    data.emails.forEach((email) => {
+      $contact_container.append($('<p />').html($('<a />').attr("href", `mailto:${email}`).text(email)));
+    });
+    if (data.social) {
+      if (data.social.facebook_urls) {
+        $contact_container.append($('<p />').html($('<a />').attr("href", data.social.facebook_urls[0]).text('Facebook')));
+      }
+      if (data.social.instagram_urls) {
+        $contact_container.append($('<p />').html($('<a />').attr("href", data.social.instagram_urls[0]).text('Instagram')));
+      }
+      if (data.social.twitter_urls) {
+        $contact_container.append($('<p />').html($('<a />').attr("href", data.social.twitter_urls[0]).text('Twitter')));
+      }
+    }
+    var $parent = $('#council-member');
+    $parent.css("display", "flex");
+  });
 }
