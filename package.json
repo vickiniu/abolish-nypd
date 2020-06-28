@@ -14,7 +14,7 @@
     "node-fetch": "^2.6.0"
   },
   "engines": {
-    "node": "6.9.x"
+    "node": "12.x"
   },
   "keywords": [
     "node",
