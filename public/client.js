@@ -196,8 +196,8 @@ ben@benkallos.com`;
   }
 
   var body = encodeURIComponent(emailText);
-  var subject = encodeURIComponent("#DefundNYPD by half, and reduce officers by half this year");
-  var url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}&to=${emails}`;
+  var subject = encodeURIComponent("[URGENT] Vote NO on a budget without cops out of schools & drastic headcount reduction");
+  var url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}&bcc=${emails}`;
   var htmlText = emailText.replace(/\n/g, "<br />");
   document.getElementById("preview").innerHTML = `
 <h2>
@@ -214,7 +214,7 @@ Send with Gmail
 </a>
 </div>
 <div class="send-mail">
-<a href="mailto:${emails}?subject=${subject}&body=${body}"><button>Send with Mail App</button></a>
+<a href="mailto:?bcc${emails}&subject=${subject}&body=${body}"><button>Send with Mail App</button></a>
 <p style="margin:5px;"><i>(best for mobile)</i></p>
 </div>
 </div>
