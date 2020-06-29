@@ -146,6 +146,11 @@ main {
   .container {
     margin: auto;
   }
+
+  .callout {
+    padding: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 /* Desktop */
@@ -154,15 +159,15 @@ main {
     margin: auto;
     width: 80%;
   }
+
+  .callout {
+    padding: 10px 50px 10px 50px;
+    margin-bottom: 10px;
+  }
 }
 
 .container {
   text-align: left;
-}
-
-.callout {
-  padding: 10px 50px 10px 50px;
-  margin-bottom: 10px;
 }
 
 .callout.highlight {
