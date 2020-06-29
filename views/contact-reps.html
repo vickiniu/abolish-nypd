@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="loadContactReps()">
     <div class="header">
         <a href="/" class="logo"><img src="assets/fist.png"></a>
         <div class="header-right">
@@ -114,6 +114,20 @@
                     Generate email
                 </button>
                 <div id="preview"></div>
+            </div>
+            <div class="callout highlight">
+                <h2>3. TWEET THEM</h2>
+                <div class="tweet-box">
+                    <p id="tweet-text">
+                        .@NYCCouncil — will you commit to VOTE NO on a budget UNLESS it cuts at least $1b in
+                        meaningful cuts - from expense budget and officer headcount, not just transfers to other
+                        departments -
+                        and reinvests in Black communities, youth, education, and human services?
+                    </p>
+                    <a id="tweet-button" href="twitter.com" target="_blank">
+                        <button class="button">Tweet</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

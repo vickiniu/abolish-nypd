@@ -253,42 +253,52 @@ var councilMemberPhones = [
   {
     name: "Margaret Chin",
     phone: "212-587-3159",
+    twitter: "@CM_MargaretChin",
   },
   {
     name: "Francisco Moya",
     phone: "718-651-1917",
+    twitter: "@FranciscoMoyaNY",
   },
   {
     name: "Costa Constantinides",
     phone: "718-274-4500",
+    twitter: "@Costa4NY",
   },
   {
     name: "Jimmy Van Bramer",
     phone: "718-383-9566",
+    twitter: "@JimmyVanBramer",
   },
   {
     name: "Brad Lander",
     phone: "718-499-1090",
+    twitter: "@BradLander",
   },
   {
     name: "Alicka Ampry-Samuel",
     phone: "718-953-3097",
+    twitter: "@AlickaASamuel41",
   },
   {
     name: "Farah Louis",
     phone: "718-629-2900",
+    twitter: "@FarahNLouis",
   },
   {
     name: "Carlos Menchaca",
     phone: "718-439-9012",
+    twitter: "@NYCCouncil38",
   },
   {
     name: "Antonio Reynoso",
     phone: "718-963-3141",
+    twitter: "@ReynosoBrooklyn",
   },
   {
     name: "Ben Kallos",
     phone: "212-860-1950",
+    twitter: "@kallos",
   },
 ];
 
@@ -348,7 +358,25 @@ function getPhoneScript() {
 <p>
   Will Council Member ${councilmember.name.split(" ").slice(1).join(" ")} commit to voting no on the budget if it doesn’t do these things ?
 </p >
-  `
+  `;
+
+  // also update the tweet box in here
+  // worth thinking if we should just give you a council member to phone + email + tweet?
+  var tweetTextElement = document.getElementById("tweet-text");
+  var tweetText = `.${councilmember.twitter} — will you commit to VOTE NO on a budget UNLESS it cuts at least $1b in meaningful cuts — from expense budget and officer headcount, not just transfers to other departments — and reinvests in Black communities, youth, education, and human services?`;
+  tweetTextElement.innerHTML = tweetText;
+  var tweetButton = document.getElementById("tweet-button");
+  tweetButton.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+}
+
+// select a random council member to tweet at first
+function loadContactReps() {
+  var councilmember = shuffledCouncilMembers[0];
+  var tweetTextElement = document.getElementById("tweet-text");
+  var tweetText = `.${councilmember.twitter} — will you commit to VOTE NO on a budget UNLESS it cuts at least $1b in meaningful cuts — from expense budget and officer headcount, not just transfers to other departments — and reinvests in Black communities, youth, education, and human services?`;
+  tweetTextElement.innerHTML = tweetText;
+  var tweetButton = document.getElementById("tweet-button");
+  tweetButton.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
 }
 
 function buildTweetButtons() {
