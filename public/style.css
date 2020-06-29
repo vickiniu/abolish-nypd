@@ -96,11 +96,42 @@ main {
   float: right;
 }
 
+.mobile-header {
+  display: none;
+}
+
+
+@media (max-width: 1000px) {
+  .logo {
+    display: none;
+  }
+}
+
 /* Add media queries for responsiveness - when the screen is 
 600px wide or less, hide the header */
 @media screen and (max-width: 800px) {
   .header {
     visibility: hidden;
+  }
+
+  .mobile-header{
+    display: block;
+    background-color: #C6C3B5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .mobile-header img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
   }
 
   .homepage {
@@ -109,12 +140,6 @@ main {
 
   blockquote {
     margin: 0px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .logo {
-    display: none;
   }
 }
 
