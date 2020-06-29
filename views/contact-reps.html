@@ -27,9 +27,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- TODO(vicki): read API key from environment -->
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-iXbXT8wSEFjZhXIzassPc0gQy00rtsA&libraries=places"></script>
 </head>
 
 <body>
@@ -50,87 +47,72 @@
                     TAKE ACTION TODAY
                 </h2>
                 <p>
-                    Putting pressure on our elected representatives works! Defunding the NYPD has become a budget
-                    possibility just in the past few days and weeks, thanks to the work of organizers and community
-                    members calling for change.
+                    <a
+                        href="https://www.politico.com/states/new-york/albany/story/2020/06/28/amid-nationwide-protests-de-blasio-council-near-budget-deal-that-would-slash-nypd-spending-1295811">Sources
+                        say</a> that the Mayor and City Council will be reaching a handshake deal <strong>by 11 PM
+                        today</strong>.
+                    From what we know, that deal is full of smoke and mirrors that shift funds around really defunding
+                    the NYPD.
                 </p>
                 <p>
-                    It's more important than ever that we keep the pressure on! June 30th is coming up, so time is of
-                    the essence.
+                    It is critical that we put pressure on our City Council members to <strong>vote NO on any
+                        budget that doesn't get cops out of schools, out of homeless services, and reduce
+                        headcount</strong>.
                 </p>
-            </div>
-            <div class="callout">
-                <h2>
-                    1. LOOKUP YOUR REP
-                </h2>
                 <p>
-                    Enter your address below to look up your City Council member.
-                </p>
-                <div class="input-container">
-                    <input class="input" id="address-input" />
-                    <div id="address-input-error"></div>
-                </div>
-                <button class="button" onclick="lookupRep()">Lookup My Rep</button>
-            </div>
-            <div class="callout highlight" id="council-member">
-                <div class="council" id="council-member-photo">
-                </div>
-                <div class="council" id="council-member-info">
-                </div>
-                <div class="council" id="council-member-contact"></div>
-            </div>
-            <div class="callout">
-                <h2>
-                    2. CALL THEM
-                </h2>
-                <p>
-                    Use our phone script to call your council member today!
-                </p>
-                <button onclick="showPhoneScript()">Show Phone Script</button>
-                <div class="drawer" id="phone-script-drawer">
-                    <div class="phone-script">
-                        <p>
-                            Hello, my name is ________ and I am a constituent of the Council Member. [If
-                            comfortable,
-                            name cross streets of residence.]
-                        </p>
-                        <p>
-                            I am calling because I want to urge the Council Member to support the call to
-                            #DefundNYPD
-                            and only vote for a budget that includes major cuts to the NYPD, specifically cutting
-                            the
-                            NYPD budget and officer headcount by half in FY21. This is very important to me, and
-                            will
-                            affect my decision in future elections.
-                        </p>
-                        <p>
-                            I also want to urge the Council Member to publicly support the call to get cops out of
-                            schools and issues that could be addressed by social services and community workers. All
-                            funds recovered from NYPD should be redirected to Black communities this upcoming fiscal
-                            year.
-                        </p>
-                        <p>
-                            I hope the Council Member will consider this issue, as I believe it's important to the
-                            constituents of this district. Thank you for your time.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="callout">
-                <h2>3. EMAIL THEM</h2>
-                <p>
-                    Send your council member an email, urging them to find meaningful cuts to the
-                    NYPD's budget and align with the #DefundNYPD demands.
+                    Use this tool to call and email City Council, pushing for #DefundNYPD.
                 </p>
                 <div class="input-container">
                     <label class="label" for="name">Name</label>
                     <input class="input" id="name" />
                     <label class="label" for="neighborhood">Neighborhood / Borough</label>
                     <input class="input" id="neighborhood" />
-                    <button class="button" onclick="generateEmail()">
-                        Generate Email
-                    </button>
                 </div>
+            </div>
+            <div class="callout highlight">
+                <h2>
+                    1. CALL THEM
+                </h2>
+                <p>
+                    Call the council members who have committed to defunding to make sure that they will vote no on any
+                    budget that doesn't significally cut the NYPD.
+                </p>
+                <button class="button" onclick="getPhoneScript()">Give me a council member to call!</button>
+                <div class="drawer" id="phone-script-drawer">
+                    <div id="call-council-member"></div>
+                    <div id="phone-script" class="phone-script">
+                        <p>
+                            My name is [name] and I live in [neighborhood]. I am calling to ask [Council Member X] to
+                            vote no on a budget
+                            that does not contain at least $1 billion in meaningful cuts to the NYPD and reinvesting
+                            those funds into communities and human services.
+                        </p>
+                        <p>
+                            We need at least $1 billion in meaningful cuts that targets the expense budget and uniformed
+                            officer headcount so we can actually reduce policing in our communities. Any attempts to
+                            transfer officers from one department to another, cap overtime which cannot truly be capped,
+                            or other so-called cuts that don’t actually reduce policing are just shell games and fuzzy
+                            math.
+                        </p>
+                        <p>
+                            We must get cops out of our schools, subways, homeless and social services, and reinvest
+                            that money in Black communities, in youth programs, education, and human services.
+                        </p>
+                        <p>
+                            Will [Council Member X] commit to voting no on the budget if it doesn’t do these things?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="callout">
+                <h2>2. EMAIL THEM</h2>
+                <p>
+                    Send these council members an email, demanding that we cut the NYPD budget meaningfully and reject
+                    any budget not in line with the #DefundNYPD demands.
+                </p>
+                <button class="button" onclick="generateEmail()">
+                    Generate email
+                </button>
                 <div id="preview"></div>
             </div>
         </div>

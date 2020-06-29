@@ -102,32 +102,21 @@ function loadReinvest() {
 }
 
 function generateEmail() {
-  var name = document.getElementById("name").value;
-  var neighborhood = document.getElementById("neighborhood").value;
-  var residence = councilMemberInfo ? `${neighborhood}, in City Council District ${councilMemberInfo.district} — your district` : neighborhood;
-  var greeting = councilMemberInfo ? `Dear Councilmember ${councilMemberInfo.last_name},` : `Dear Councilmember,`
-  const emailText = `${greeting}
+  var name = document.getElementById("name").value ? document.getElementById("name").value : "[NAME]";
+  var neighborhood = document.getElementById("neighborhood").value ? document.getElementById("neighborhood").value : "[NEIGHBORHOOD]";
 
-My name is ${name} and I am a resident of ${residence}. As you know, NYC Mayor Bill De Blasio proposed major budget cuts for the Fiscal Year 2021, especially to education and youth programs, while refusing to dramatically slash the NYPD budget. 
-  
-The Speaker and NYC Council has found $1 billion worth of cuts, but I, along with many other residents of this city, are asking you for far more meaningful cuts that address the concerns of the moment. I urge you to work with your colleagues to do the following to respond to the #DefundNYPD demands:
-  
-  1. Release the Council’s detailed NYPD cuts proposal immediately to allow for public review and complete transparency.
+  const emailText = `Dear Councilmember,
 
-  2. Cut NYPD budget and officer headcount by half in FY21 which means cutting the police (operating) budget by half ($3B) and cutting the headcount of uniformed officers by half to truly address police violence. The Council’s proposal to reduce civilian positions or allocations to “other than personnel services” does not address concerns about uniformed officers on the street. I am concerned about overtime cuts that are unenforceable and ask that Council show the public the mechanisms by which caps or cuts can be determined through budget adoption.
+My name is ${name} and I am a resident of ${neighborhood}. In the final hours of the budget, I am asking you to vote no on the budget if it does not contain at least $1 billion in meaningful cuts to the NYPD and reinvesting those funds into communities and human services.
 
-  3. Get cops out of schools and issues that could be addressed by social services and community workers in FY21 which means an end to police response to issues that could be transitioned to community workers, and all officers and NYPD employees should be removed from schools, mental health response and co-response teams, homeless outreach, neighborhood disputes, transit, and subways. 
+By meaningful cuts, they need to actually reduce policing in our communities. This means that the headcount needs to be brought down, and not just by attrition. While the Mayor has been unwilling to lay off police officers, he has already laid off over 13,000 contracted social services workers and 130 DOE guidance counselors in low income schools, and threatens to cut 22,000 city workers. Additionally, just moving school safety officers to the DOE, or any other uniformed officer to another division is not a cut that reduces policing of Black, Brown and other communities of color. It is just a shell game that cannot be counted towards meaningful cuts. Attempts to cap overtime are also meaningless since the Council has failed to cap overtime in the past, and has not demonstrated that there is real mechanisms to control NYPD overtime. “Cutting” overtime can be cited as a win in the budget as it passes by July 1st, and then approved later when the NYPD overspends hundreds of millions of dollars on overtime, as it has done in the past. This also cannot be counted towards meaningful cuts.
 
-  4. Redirect funds to Black communities in FY21. Redirect the billions that go to police departments toward providing health care, housing, social services, schools, childcare and eldercare, and programs that benefit Black people, that would create less need for police in the first place.
+Meaningful cuts of at least $1 billion must target the NYPD Expense Budget. These cuts must reduce the headcount of uniformed officers immediately, put pressure on the NYPD to fire killer cops, get cops out of our schools, subways, homeless services and other social services.  
 
-  5. Fully transparent NYPD budget in FY21. Just based on how difficult it has been for the public to engage in an open process around NYPD cuts, the Council needs to demand a fully transparent NYPD budget that is accessible to the public. It is unacceptable that there are large swaths of the NYPD budget unavailable to anyone. 
+A litmus test of whether these cuts are meaningful is how much money gets reinvested in education, youth services, social services, and especially in Black communities. If a cut is a true cut, and not just a transfer, a cap, or other fuzzy math, there will be funds available to reinvest in communities and I as your constituent will know! I am paying attention to the ways the Council is divesting from NYPD and police headcount, and investing in our communities. That means we need to fund SYEP and other youth programs, education, homeless services, critical social safety net programs, and human services organizations. Investing in our communities and the organizations that serve them is not only the best way to promote community safety and wellness; it is the only way that we recover from the pandemic equitably. 
 
-  6. No rollbacks. The Council should ensure that these cuts remain in place for future fiscal years, and not just as a ‘austerity budget’ measure. These cuts to the NYPD are in the interest of community safety and the well being of Black people, not just savings for the City during this fiscal crisis. 
-  
-As someone who cares deeply about our city, I urge you to vote NO to a budget that does not defund the police by a half and the force by a half. I am also asking that Council members remain transparent with their residents on the process of negotiation in the coming month, and publicly make a definitive statement in support of these #DefundNYPD demands before the end of the month, so residents can hold them accountable.
-  
-It is more clear to me than ever that true community safety comes from investing in education, our youth, healthcare, housing, and other social services — not an over-militarized police with little to no accountability. For the sake of our city, please commit to defunding the NYPD by half.
-  
+Will you please commit to voting no on the budget unless it includes $1 billion in cuts to the NYPD Expense Budget and uniformed officer headcount, and reinvests that money in Black communities and human services?
+
 Thank you,
 ${name}
   `;
@@ -258,13 +247,108 @@ function closeReinvestModal() {
   modal.style.display = "none";
 }
 
-function showPhoneScript() {
+// council member names + phone numbers who have
+// committed to voting NO
+var councilMemberPhones = [
+  {
+    name: "Margaret Chin",
+    phone: "212-587-3159",
+  },
+  {
+    name: "Francisco Moya",
+    phone: "718-651-1917",
+  },
+  {
+    name: "Costa Constantinides",
+    phone: "718-274-4500",
+  },
+  {
+    name: "Jimmy Van Bramer",
+    phone: "718-383-9566",
+  },
+  {
+    name: "Brad Lander",
+    phone: "718-499-1090",
+  },
+  {
+    name: "Alicka Ampry-Samuel",
+    phone: "718-953-3097",
+  },
+  {
+    name: "Farah Louis",
+    phone: "718-629-2900",
+  },
+  {
+    name: "Carlos Menchaca",
+    phone: "718-439-9012",
+  },
+  {
+    name: "Antonio Reynoso",
+    phone: "718-963-3141",
+  },
+  {
+    name: "Ben Kallos",
+    phone: "212-860-1950",
+  },
+];
+
+function shuffle(array) {
+  var i;
+  for (i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  return array;
+}
+
+var councilMemberIndex = 0;
+var shuffledCouncilMembers = shuffle(councilMemberPhones);
+
+function getPhoneScript() {
+  console.log("getting phone script");
   var drawer = document.getElementById("phone-script-drawer");
-  if (drawer.style.display === "block") {
-    drawer.style.display = "none";
-  } else {
+  if (drawer.style.display != "block") {
+    // On first click, show the drawer
     drawer.style.display = "block";
   }
+
+  var name = document.getElementById("name").value ? document.getElementById("name").value : "[NAME]";
+  var neighborhood = document.getElementById("neighborhood").value ? document.getElementById("neighborhood").value : "[NEIGHBORHOOD]";
+
+  var councilmember = shuffledCouncilMembers[councilMemberIndex % shuffledCouncilMembers.length];
+  // Get a new council member to call
+  var councilmemberElement = document.getElementById("call-council-member");
+  councilmemberElement.innerHTML = `
+  <h2>COUNCIL MEMBER ${councilmember.name.toUpperCase()}</h2>
+  <p>District office: <a href="tel:${councilmember.phone}">${councilmember.phone}</a></p>
+  `;
+  councilMemberIndex++;
+
+  var phoneScript = document.getElementById("phone-script");
+  phoneScript.innerHTML = `
+  <p>
+  My name is ${name} and I live in ${neighborhood}. I am calling to ask Council Member ${councilmember.name} to
+  vote no on a budget
+  that does not contain at least $1 billion in meaningful cuts to the NYPD and reinvesting
+  those funds into communities and human services.
+</p>
+<p>
+  We need at least $1 billion in meaningful cuts that targets the expense budget and uniformed
+  officer headcount so we can actually reduce policing in our communities. Any attempts to
+  transfer officers from one department to another, cap overtime which cannot truly be capped,
+  or other so-called cuts that don’t actually reduce policing are just shell games and fuzzy
+  math.
+</p>
+<p>
+  We must get cops out of our schools, subways, homeless and social services, and reinvest
+  that money in Black communities, in youth programs, education, and human services.
+</p>
+<p>
+  Will Council Member ${councilmember.name.split(" ").slice(1).join(" ")} commit to voting no on the budget if it doesn’t do these things ?
+</p >
+  `
 }
 
 function buildTweetButtons() {
