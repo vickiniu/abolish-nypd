@@ -1,7 +1,7 @@
 {
-  "name": "airtable-example",
+  "name": "abolish-the-nypd",
   "version": "0.0.1",
-  "description": "Display data from an Airtable base",
+  "description": "Defunding is just the beginning: Abolish the NYPD",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,15 +11,21 @@
     "autolinker": "^3.14.1",
     "express": "^4.12.4",
     "google-spreadsheet": "^3.0.11",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "engines": {
     "node": "12.x"
   },
-  "keywords": [
-    "node",
-    "express",
-    "airtable"
-  ],
-  "license": "MIT"
+  "keywords": [],
+  "author": "Vicki Niu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.6"
+  }
 }
