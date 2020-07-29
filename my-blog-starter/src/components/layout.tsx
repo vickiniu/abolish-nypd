@@ -90,11 +90,11 @@ const Header = () => {
 
 const Footer = () => {
   const linkStyle = {
-    paddingLeft: "5px",
-    paddingRight: "5px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
     textDecoration: "none",
     boxShadow: "none",
-    color: "rgba(0, 0, 0, 0.5)",
+    color: "#000",
     margin: "auto",
   }
   return (
