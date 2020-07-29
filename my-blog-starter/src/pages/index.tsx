@@ -97,7 +97,7 @@ const CallToAction = (props: CallToActionProps) => {
           textAlign: "center",
           width: "250px",
           height: "200px",
-          border: "0.25px solid #C09E1C",
+          border: "0.25px solid rgba(0, 0, 0, 0.5)",
           alignItems: "center",
         }}
       >
@@ -130,10 +130,14 @@ const Index = ({ data }: Props) => {
   return (
     <Layout location={window.location} title={siteTitle}>
       <SEO title="Abolish the NYPD" />
-      <p>
-        A compilation of resources, information, and actions on defunding (and
-        abolishing) the NYPD.
-      </p>
+      <div style={{ textAlign: "center" }}>
+        <h1>ABOLISH THE NYPD</h1>
+        <p>
+          A compilation of resources, information, and actions on defunding (and
+          abolishing) the NYPD.
+        </p>
+      </div>
+
       <h2>WHY DEFUND THE NYPD?</h2>
       <p>
         We know our communities are safe and can thrive when we have housing,
