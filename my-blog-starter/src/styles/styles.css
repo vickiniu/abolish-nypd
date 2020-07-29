@@ -1,0 +1,19 @@
+body {
+  background-color: #efefef;
+}
+
+.no-link-style a {
+  text-decoration: none;
+  box-shadow: none;
+  color: black;
+}
+
+.col {
+  flex-basis: "100%";
+}
+
+@media screen and (min-width: 800px) {
+  .col {
+    flex: 1;
+  }
+}
