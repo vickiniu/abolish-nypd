@@ -1,10 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { rhythm } from "../utils/typography"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import "../styles/styles.css"
 
@@ -97,7 +96,7 @@ const CallToAction = (props: CallToActionProps) => {
           textAlign: "center",
           width: "250px",
           height: "200px",
-          border: "0.25px solid rgba(0, 0, 0, 0.5)",
+          border: "0.25px solid #4C566A",
           alignItems: "center",
         }}
       >
@@ -128,7 +127,7 @@ interface Props {
 const Index = ({ data }: Props) => {
   const siteTitle = data?.site.siteMetadata.title
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout page="home" location={window.location} title={siteTitle}>
       <SEO title="Abolish the NYPD" />
       <div style={{ textAlign: "center" }}>
         <h1>ABOLISH THE NYPD</h1>

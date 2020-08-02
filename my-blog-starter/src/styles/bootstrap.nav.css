@@ -1,5 +1,9 @@
 /* Bootstrap Nav/NavBar styling */
 
+.collapse:not(.show) {
+  display: none;
+}
+
 nav {
   display: block;
 }
