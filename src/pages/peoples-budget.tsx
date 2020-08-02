@@ -36,7 +36,7 @@ class PeoplesBudget extends Component<Props, PeoplesBudgetState> {
 
   componentDidMount() {
     fetch(
-      `https://api.airtable.com/v0/app9sISkqADT6l3HG/Cut%20It%20(NYPD%20Budget)?api_key=${process.env.AIRTABLE_API_KEY}`
+      `https://api.airtable.com/v0/app9sISkqADT6l3HG/Cut%20It%20(NYPD%20Budget)?api_key=${process.env.GATSBY_AIRTABLE_API_KEY}`
     )
       .then(resp => resp.json())
       .then(data => {
@@ -57,7 +57,7 @@ class PeoplesBudget extends Component<Props, PeoplesBudgetState> {
       })
 
     fetch(
-      `https://api.airtable.com/v0/app9sISkqADT6l3HG/Reinvest%20It%20(In%20Communities)?api_key=${process.env.AIRTABLE_API_KEY}`
+      `https://api.airtable.com/v0/app9sISkqADT6l3HG/Reinvest%20It%20(In%20Communities)?api_key=${process.env.GATSBY_AIRTABLE_API_KEY}`
     )
       .then(resp => resp.json())
       .then(data => {
