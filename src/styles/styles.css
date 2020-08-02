@@ -1,0 +1,28 @@
+body {
+  background-color: #f8f9fb;
+}
+
+.no-link-style a {
+  text-decoration: none;
+  box-shadow: none;
+  color: black;
+}
+
+.col {
+  flex-basis: "100%";
+}
+
+@media screen and (min-width: 800px) {
+  .col {
+    flex: 1;
+  }
+}
+
+button {
+  background-color: #007acc;
+  border-width: 0;
+  border-style: solid;
+  padding: 5px 15px;
+  color: #f8f9fb;
+  box-shadow: rgba(184, 194, 215, 0.35) 0px 3px 6px 0px;
+}
