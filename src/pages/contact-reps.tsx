@@ -30,8 +30,8 @@ const ContactReps = ({ data }: Props) => {
       <h1 style={{ textAlign: "center" }}>CONTACT YOUR REP</h1>
       <h2>TAKE ACTION TODAY</h2>
       <p>
-        While the City Council made a disappointing vote to keep the NYPD budget
-        almost entirely intact using{" "}
+        This year, the City Council made a disappointing vote to keep the NYPD
+        budget almost entirely intact using{" "}
         <a href="https://www.cityandstateny.com/articles/politics/new-york-city/did-de-blasio-actually-defund-nypd.html">
           shady budget tricks
         </a>

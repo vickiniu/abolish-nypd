@@ -136,7 +136,6 @@ const Index = ({ data }: Props) => {
           abolishing) the NYPD.
         </p>
       </div>
-
       <h2>WHY DEFUND THE NYPD?</h2>
       <p>
         We know our communities are safe and can thrive when we have housing,
@@ -168,34 +167,6 @@ const Index = ({ data }: Props) => {
           <a href="https://twitter.com/sheabutterfemme">@sheabutterfemme</a>
         </p>
       </blockquote>
-      <h2>WHERE DO THINGS STAND IN NYC?</h2>
-      <p>
-        Ending police violence starts with significant and effective cuts to the
-        NYPD's budget. Over the last few weeks, thousands of New Yorkers have
-        shown up in the streets, called and emailed their Council Members and
-        demanded that we defund the NYPD and invest in communities — by AT LEAST
-        $1 billion this year. Years of organizing by activists and advocates
-        have gotten us to this critical moment.
-      </p>
-      <p>
-        With mere days until the June 30th deadline for a final budget,{" "}
-        <a
-          href="https://council.nyc.gov/press/2020/06/12/1983/"
-          target="_blank"
-        >
-          the City Council announced
-        </a>{" "}
-        that they “can and should work to get $1 billion in cuts” to the NYPD
-        this year. While this is a win, and a step in the right direction, we
-        are nowhere near done with this fight yet. In fact, it is time to fight
-        harder for deeper, meaningful, and more transparent cuts- and to ensure
-        that money gets invested back in New York’s communities.
-      </p>
-      <p>
-        We need to be clear on what we’re asking for, and hold our electeds
-        accountable for it. And we need to ask them to vote no on a budget that
-        doesn’t deliver what the people demand.
-      </p>
       <h2>WHAT DO DEEPER, MEANINGFUL, TRANSPARENT CUTS MEAN?</h2>
       <Row>
         <Col>
@@ -299,14 +270,14 @@ const Index = ({ data }: Props) => {
           </Card>
         </Col>
       </Row>
-      <h3>TAKE ACTION</h3>
+      <h2>TAKE ACTION</h2>
       <p>
         Here are four things you can do today to get educated, join the fight,
         and stay engaged!
       </p>
       <CardContainer>
         <CallToAction href="/contact-reps" title="Call Your Rep">
-          Email and call your council member calling for #DefundNYPD today!
+          Email and call your council member calling for #DefundNYPD!
         </CallToAction>
         <CallToAction href="/peoples-budget" title="People's Budget">
           Where should we cut the NYPD? How should we invest at least $1B in our
