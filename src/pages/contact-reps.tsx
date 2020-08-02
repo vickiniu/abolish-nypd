@@ -25,7 +25,7 @@ const ContactReps = ({ data }: Props) => {
 
   const siteTitle = data?.site.siteMetadata.title
   return (
-    <Layout page="contact-reps" location={window.location} title={siteTitle}>
+    <Layout page="contact-reps" title={siteTitle}>
       <SEO title="Contact Reps" />
       <h1 style={{ textAlign: "center" }}>CONTACT YOUR REP</h1>
       <h2>TAKE ACTION TODAY</h2>

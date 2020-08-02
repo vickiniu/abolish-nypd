@@ -127,7 +127,7 @@ interface Props {
 const Index = ({ data }: Props) => {
   const siteTitle = data?.site.siteMetadata.title
   return (
-    <Layout page="home" location={window.location} title={siteTitle}>
+    <Layout page="home" title={siteTitle}>
       <SEO title="Abolish the NYPD" />
       <div style={{ textAlign: "center" }}>
         <h1>ABOLISH THE NYPD</h1>

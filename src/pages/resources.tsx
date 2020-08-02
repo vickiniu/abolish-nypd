@@ -21,7 +21,7 @@ const Posts = ({ data }: Props) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout page="resources" location={window.location} title={siteTitle}>
+    <Layout page="resources" title={siteTitle}>
       <SEO title="Learn More" />
       <div style={{ textAlign: "center" }}>
         <h1>RESOURCES ON ABOLITION</h1>

@@ -9,13 +9,12 @@ import "../styles/bootstrap.nav.css"
 import "../styles/font-awesome-4.7.0/css/font-awesome.min.css"
 
 interface Props {
-  location: Location
   title: string
   page?: string
   children?: any
 }
 
-const Layout = ({ location, title, page, children }: Props) => {
+const Layout = ({ title, page, children }: Props) => {
   return (
     <div>
       <header>
